@@ -17,8 +17,8 @@ def nakresli_mapu(vyska, sirka, souradnice, potrava):
     return seznam_radku
 
 def po_limitu():
-    'po upynutí limitu vybere náhodně směr'
-    raise ValueError("Čas vypršel !!!") 
+    'po upynutí limitu vyvolá výjimku'
+    raise ValueError("Time's up !!!")
     #moznosti =["s", "j", "v", "z"]
     #smer = random.choice(moznosti)
 
