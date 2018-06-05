@@ -18,7 +18,7 @@ def nakresli_mapu(vyska, sirka, souradnice, potrava):
 
 def po_limitu():
     'po upynutí limitu vybere náhodně směr'
-    return ("Čas vypršel !!!") 
+    return "Čas vypršel !!!" 
     #moznosti =["s", "j", "v", "z"]
     #smer = random.choice(moznosti)
 
