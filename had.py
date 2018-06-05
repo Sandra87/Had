@@ -18,9 +18,9 @@ def nakresli_mapu(vyska, sirka, souradnice, potrava):
 
 def po_limitu():
     'po upynutí limitu vybere náhodně směr'
-    print('Čas vypršel !!!')
-    moznosti =["s", "j", "v", "z"]
-    smer = random.choice(moznosti)
+    return ("Čas vypršel !!!") 
+    #moznosti =["s", "j", "v", "z"]
+    #smer = random.choice(moznosti)
 
 def had_hra(vyska, sirka):
     """Průběh hry.
