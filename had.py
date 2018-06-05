@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pohyb, random
+from threading import Timer
 
 def nakresli_mapu(vyska, sirka, souradnice, potrava):
     'Vypíše aktuální stav na hracím poli'
@@ -15,6 +16,12 @@ def nakresli_mapu(vyska, sirka, souradnice, potrava):
         seznam_radku[pozice[0]][pozice[1]] = '?' # kde je potrava,  nahradí '.' za '?'
     return seznam_radku
 
+def po_limitu():
+    'po upynutí limitu vybere náhodně směr'
+    print('Čas vypršel !!!')
+    moznosti =["s", "j", "v", "z"]
+    smer = random.choice(moznosti)
+
 def had_hra(vyska, sirka):
     """Průběh hry.
     Zeptá se uživatele na směr pohybu, zavolá fci pohyb a vypíše stav.
@@ -23,7 +30,11 @@ def had_hra(vyska, sirka):
     souradnice = [(0, 0), (0, 1), (0, 2)] # had
     potrava = [(2, 3)]
     while True:
-        smer = input('Kam se má had Posunout? Vyber si směr a zadej "s", "j","v" nebo "z":')
+        limit = 10 # časový limit
+        t = Timer(limit, po_limitu) # co se má stát po uplynutí limitu
+        t.start() # začátek odpočtu
+        smer = input("Máš %d sekund. Vyber si směr a zadej s, j, v nebo z:" % limit)
+        t.cancel() # zrušení odpočtu (uživatel to stihl)
         pohyb.pohyb(sirka, vyska, souradnice, smer, potrava)
         tabulka = nakresli_mapu(sirka, vyska,souradnice, potrava)
         # výpis stavu hry
