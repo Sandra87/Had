@@ -1,0 +1,7 @@
+[
+  "test_had.py::test_pohyb",
+  "test_had.py::test_append",
+  "test_had.py::test_konec_hry",
+  "test_had.py::test_index",
+  "test_had.py::test_smer_pohybu"
+]
